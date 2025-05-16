@@ -1,0 +1,53 @@
+body {
+  font-family: sans-serif;
+  background: #F5F5EF;
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.sliders {
+  flex: 1 1 300px;
+}
+
+.preview {
+  flex: 2 1 600px;
+  display: flex;
+  gap: 2rem;
+}
+
+label {
+  display: block;
+  margin: 1rem 0 0.25rem;
+}
+
+input[type=range] {
+  width: 100%;
+}
+
+.value {
+  font-weight: bold;
+  margin-left: 1rem;
+}
+
+.preview-box {
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  overflow: hidden;
+}
+
+.preview-box h1,
+.preview-box h2,
+.preview-box h3,
+.preview-box p {
+  margin: 0.75rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
