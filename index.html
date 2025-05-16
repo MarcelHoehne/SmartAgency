@@ -1,49 +1,58 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <title>Typo Slider Vergleich</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="sliders">
     <h2>Typo-Slider</h2>
-
-    <label>1. Basiswert (px): <span id="baseVal" class="value"></span></label>
+    <p>The User sets the Foundation Value of paragraphs</p>
+    <label>Basiswert (px): <span id="baseVal" class="value"></span></label>
     <input type="range" id="baseSlider" min="16" max="21" step="0.5" value="16">
 
-    <label>2. H1 Desktop (%): <span id="h1Val" class="value"></span></label>
+    <label>H1 Desktop (%): <span id="h1Val" class="value"></span></label>
     <input type="range" id="h1Slider" min="200" max="400" step="1" value="320">
 
-    <label>3. H2 Desktop (%): <span id="h2Val" class="value"></span></label>
+    <label>H2 Desktop (%): <span id="h2Val" class="value"></span></label>
     <input type="range" id="h2Slider" min="150" max="300" step="1" value="200">
 
-    <label>4. H3 Desktop (%): <span id="h3Val" class="value"></span></label>
+    <label>H3 Desktop (%): <span id="h3Val" class="value"></span></label>
     <input type="range" id="h3Slider" min="125" max="300" step="1" value="240">
 
-    <label>5. Mobile Ratio (%): <span id="ratioVal" class="value"></span></label>
-    <input type="range" id="ratioSlider" min="30" max="100" step="1" value="60">
+
 
     <p><strong>Ergebnisse:</strong></p>
     <p>H1: <span id="h1Px"></span> / <span id="h1MobilePx"></span> px</p>
     <p>H2: <span id="h2Px"></span> / <span id="h2MobilePx"></span> px</p>
     <p>H3: <span id="h3Px"></span> / <span id="h3MobilePx"></span> px</p>
-  </div>
+     <div>
+    <h2>This is just for the Ratio between Destkop and Mobile</h2>
+    <p>The minimum thresholds are not undermined</p>
 
+    <label>5. Mobile Ratio (%): <span id="ratioVal" class="value"></span></label>
+    <input type="range" id="ratioSlider" min="30" max="100" step="1" value="60">
+  </div>
+  </div>
+ 
   <div class="preview">
     <div class="preview-box">
       <h2>Desktop Vorschau</h2>
-      <h1 id="demoH1">Beispieltext</h1>
-      <h2 id="demoH2">Beispieltext</h2>
-      <h3 id="demoH3">Beispieltext</h3>
-      <p id="demoP">Absatztext</p>
+      <h1 id="demoH1">Titelheadlines</h1>
+      <h2 id="demoH2">Sectionheadlines</h2>
+      <h3 id="demoH3">Cardheadlines</h3>
+      <p id="demoP">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id luctus neque. Sed est neque, pretium eu vehicula nec, tempor id sem. Proin turpis est, mattis ut sagittis vel, finibus non mauris. Praesent consectetur sapien ut urna sollicitudin, at tincidunt nunc auctor. Duis egestas sem sit amet aliquam dignissim.</p>
     </div>
+
     <div class="preview-box">
       <h2>Mobile Vorschau</h2>
-      <h1 id="demoH1Mobile">Beispieltext</h1>
-      <h2 id="demoH2Mobile">Beispieltext</h2>
-      <h3 id="demoH3Mobile">Beispieltext</h3>
-      <p id="demoPMobile">Absatztext</p>
+      <h1 id="demoH1Mobile">Titelheadlines</h1>
+      <h2 id="demoH2Mobile">Sectionheadlines</h2>
+      <h3 id="demoH3Mobile">Cardheadlines</h3>
+      <p id="demoPMobile">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id luctus neque. Sed est neque, pretium eu vehicula nec, tempor id sem. Proin turpis est, mattis ut sagittis vel, finibus non mauris. Praesent consectetur sapien ut urna sollicitudin, at tincidunt nunc auctor. Duis egestas sem sit amet aliquam dignissim.</p>
     </div>
   </div>
 
@@ -131,4 +140,5 @@
     });
   </script>
 </body>
+
 </html>
