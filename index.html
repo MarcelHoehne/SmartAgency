@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Typo Slider Vergleich</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sliders">
+    <h2>Typo-Slider</h2>
+
+    <label>1. Basiswert (px): <span id="baseVal" class="value"></span></label>
+    <input type="range" id="baseSlider" min="16" max="21" step="0.5" value="16">
+
+    <label>2. H1 Desktop (%): <span id="h1Val" class="value"></span></label>
+    <input type="range" id="h1Slider" min="200" max="400" step="1" value="320">
+
+    <label>3. H2 Desktop (%): <span id="h2Val" class="value"></span></label>
+    <input type="range" id="h2Slider" min="150" max="300" step="1" value="200">
+
+    <label>4. H3 Desktop (%): <span id="h3Val" class="value"></span></label>
+    <input type="range" id="h3Slider" min="125" max="300" step="1" value="240">
+
+    <label>5. Mobile Ratio (%): <span id="ratioVal" class="value"></span></label>
+    <input type="range" id="ratioSlider" min="30" max="100" step="1" value="60">
+
+    <p><strong>Ergebnisse:</strong></p>
+    <p>H1: <span id="h1Px"></span> / <span id="h1MobilePx"></span> px</p>
+    <p>H2: <span id="h2Px"></span> / <span id="h2MobilePx"></span> px</p>
+    <p>H3: <span id="h3Px"></span> / <span id="h3MobilePx"></span> px</p>
+  </div>
+
+  <div class="preview">
+    <div class="preview-box">
+      <h2>Desktop Vorschau</h2>
+      <h1 id="demoH1">Beispieltext</h1>
+      <h2 id="demoH2">Beispieltext</h2>
+      <h3 id="demoH3">Beispieltext</h3>
+      <p id="demoP">Absatztext</p>
+    </div>
+    <div class="preview-box">
+      <h2>Mobile Vorschau</h2>
+      <h1 id="demoH1Mobile">Beispieltext</h1>
+      <h2 id="demoH2Mobile">Beispieltext</h2>
+      <h3 id="demoH3Mobile">Beispieltext</h3>
+      <p id="demoPMobile">Absatztext</p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const baseSlider = document.getElementById('baseSlider');
+      const h1Slider = document.getElementById('h1Slider');
+      const h2Slider = document.getElementById('h2Slider');
+      const h3Slider = document.getElementById('h3Slider');
+      const ratioSlider = document.getElementById('ratioSlider');
+
+      const baseVal = document.getElementById('baseVal');
+      const h1Val = document.getElementById('h1Val');
+      const h2Val = document.getElementById('h2Val');
+      const h3Val = document.getElementById('h3Val');
+      const ratioVal = document.getElementById('ratioVal');
+
+      const h1Px = document.getElementById('h1Px');
+      const h2Px = document.getElementById('h2Px');
+      const h3Px = document.getElementById('h3Px');
+      const h1MobilePx = document.getElementById('h1MobilePx');
+      const h2MobilePx = document.getElementById('h2MobilePx');
+      const h3MobilePx = document.getElementById('h3MobilePx');
+
+      const demoH1 = document.getElementById('demoH1');
+      const demoH2 = document.getElementById('demoH2');
+      const demoH3 = document.getElementById('demoH3');
+      const demoP = document.getElementById('demoP');
+
+      const demoH1M = document.getElementById('demoH1Mobile');
+      const demoH2M = document.getElementById('demoH2Mobile');
+      const demoH3M = document.getElementById('demoH3Mobile');
+      const demoPM = document.getElementById('demoPMobile');
+
+      function update() {
+        const base = parseFloat(baseSlider.value);
+        const h1Factor = parseFloat(h1Slider.value) / 100;
+        const h2Factor = parseFloat(h2Slider.value) / 100;
+        const h3Factor = parseFloat(h3Slider.value) / 100;
+        const ratio = parseFloat(ratioSlider.value) / 100;
+
+        const h1 = base * h1Factor;
+        const h2 = base * h2Factor;
+        const h3 = base * h3Factor;
+
+        let h1Mobile = h1 * ratio;
+        let h2Mobile = h2 * ratio;
+        let h3Mobile = h3 * ratio;
+
+        if (h1Mobile < base * 2.0) h1Mobile = base * 2.0;
+        if (h2Mobile < base * 1.5) h2Mobile = base * 1.5;
+        if (h3Mobile < base * 1.25) h3Mobile = base * 1.25;
+
+        baseVal.textContent = base + ' px';
+        h1Val.textContent = h1Slider.value + ' %';
+        h2Val.textContent = h2Slider.value + ' %';
+        h3Val.textContent = h3Slider.value + ' %';
+        ratioVal.textContent = ratioSlider.value + ' %';
+
+        h1Px.textContent = h1.toFixed(1);
+        h2Px.textContent = h2.toFixed(1);
+        h3Px.textContent = h3.toFixed(1);
+        h1MobilePx.textContent = h1Mobile.toFixed(1);
+        h2MobilePx.textContent = h2Mobile.toFixed(1);
+        h3MobilePx.textContent = h3Mobile.toFixed(1);
+
+        demoH1.style.fontSize = h1.toFixed(1) + 'px';
+        demoH2.style.fontSize = h2.toFixed(1) + 'px';
+        demoH3.style.fontSize = h3.toFixed(1) + 'px';
+        demoP.style.fontSize = base.toFixed(1) + 'px';
+
+        demoH1M.style.fontSize = h1Mobile.toFixed(1) + 'px';
+        demoH2M.style.fontSize = h2Mobile.toFixed(1) + 'px';
+        demoH3M.style.fontSize = h3Mobile.toFixed(1) + 'px';
+        demoPM.style.fontSize = base.toFixed(1) + 'px';
+      }
+
+      baseSlider.oninput =
+        h1Slider.oninput =
+        h2Slider.oninput =
+        h3Slider.oninput =
+        ratioSlider.oninput = update;
+
+      update();
+    });
+  </script>
+</body>
+</html>
