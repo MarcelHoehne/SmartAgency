@@ -10,12 +10,15 @@ body {
 
 .sliders {
   flex: 1 1 300px;
+  width: 50%;
 }
 
 .preview {
-  flex: 2 1 600px;
+  flex: 2 1 300px;
   display: flex;
   gap: 2rem;
+  flex-direction: column;
+  width: 50%;
 }
 
 label {
@@ -34,20 +37,27 @@ input[type=range] {
 
 .preview-box {
   background: white;
-  padding: 1rem;
+  padding: 2rem;
   border-radius: 6px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   flex: 1;
-  overflow: hidden;
 }
 
 .preview-box h1,
 .preview-box h2,
 .preview-box h3,
-.preview-box p {
-  margin: 0.75rem 0;
+{
+  margin: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
 }
+.preview-box p { margin: 0.75rem 0;
+  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+
+}
+h1, h2, h3 {margin: 8px;  text-overflow: ellipsis; overflow: hidden; }
